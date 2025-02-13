@@ -191,16 +191,32 @@ const startGame = (category) => {
 const resetGame = () => {
     const container_newSpace = document.querySelectorAll('.container_newSpace');
     const letters = document.querySelectorAll('.letters');
+    const error = document.querySelectorAll('.error');
+    const correct = document.querySelectorAll('.correct');
 
+    word = '';
+    errors = 0;
+    hits = 0;
     if (container_newSpace) {
         container_newSpace.forEach((space) => {
             space.remove();
+            space.setAttribute('class', '')
         })
     }
     if (letters) {
         letters.forEach((letter) => {
             letter.remove();
+            letter.setAttribute('class', '')
+        })
+    } if (error) {
+        error.forEach((err) => {
+            err.remove();
+        })
+    } if (correct) {
+        correct.forEach((corr) => {
+            corr.remove();
         })
     }
+
 }
 
