@@ -182,14 +182,14 @@ body {
     display: flex;
     justify-items: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 10px;
 }
 
 .container_categories {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    padding-left: 1em;
+    padding-left: 0.8em;
     padding-right: 0.8em;
     justify-content: space-evenly;
 }
@@ -199,7 +199,7 @@ body {
     color: var(--space-background);
     border-radius: 6px;
     padding: 0.8em;
-    font-size: 28px;
+    font-size: 30px;
     margin: 0.2em;
     justify-content: center;
     align-content: center;
@@ -209,25 +209,29 @@ body {
 }
 
 #btnCloseSelect {
-    background-color: var(--background-hangman);
     border-radius: 22px;
     width: 50px;
     height: 50px;
     top: 0;
     right: 0;
     position: absolute;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    background-color: var(--blue-04);
+    border: none;
 }
 
 #btnViewCategories {
-    background-color: var(--background-hangman);
     border-radius: 22px;
     width: 60px;
     height: 60px;
     top: 0;
     left: 0;
     position: absolute;
-    background-color: #183f4d;
     z-index: 1;
+    background-color: var(--space-background);
+    border: none;
 }
 
 #category_h2 {
@@ -237,4 +241,9 @@ body {
 
 #category_name {
     color: var(--green-01);
+}
+
+h4 {
+    margin: 1em;
+    margin-bottom: 0.5em;
 }
