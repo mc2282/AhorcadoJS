@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Ahorcado</title>
+    <link rel="stylesheet" href="./styles/style.css">
+
+</head>
+
+<body>
+    <main id="app">
+        <button id="btnViewCategories">
+            <img src="./assets/icons/category-4.svg" height="50px">
+        </button>
+
+        <div class="container_app">
+
+            <!-- Seleccione una categoría -->
+            <div id="categoryWindow">
+                <button id="btnCloseSelect"></button>
+                <h4>Seleccione una categoría:</h4>
+                <div class="container_categories">
+                    <div id="astronomia" class="categories">Astronomía</div>
+                    <div id="geografia" class="categories">Geografía</div>
+                    <div id="historia_mundial" class="categories">Historia Mundial</div>
+                    <div id="mitos_leyendas" class="categories">Mitos y Leyendas</div>
+                    <div id="filosofia" class="categories">Filosofía</div>
+                    <div id="ciencia" class="categories">Ciencia</div>
+                </div>
+
+            </div>
+            <h2 id="category_h2">Categoría: <span id="category_name"></span></h2>
+
+            <div class="container_imagen">
+
+                <canvas id="myCanvas" height="450" width="450"></canvas>
+            </div>
+
+            <div class="container_spaces">
+            </div>
+
+            <div class="container_letters">
+            </div>
+
+
+        </div>
+        </div>
+    </main>
+
+    <script type="module" src="./scripts/script.js"></script>
+    <script src="./scripts/hangman.js"></script>
+    <script src="./scripts/categories.js"></script>
+</body>
+
+</html>
