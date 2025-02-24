@@ -1,6 +1,10 @@
 import * as hangman from './hangman.js';
 import * as categories from './categories.js';
 
+/**/
+const resultsWindow = document.querySelector('#resultsWindow');
+const resultado = document.querySelector('#resultado');
+
 /* categorias */
 const astronomia = document.getElementById('astronomia');
 const geografia = document.getElementById('geografia');
@@ -20,6 +24,7 @@ let word = '';
 let errors = 0;
 let score = 0;
 let hits = 0;
+let catName;
 
 const genRandomWord = (category) => {
     word = '';
@@ -38,7 +43,6 @@ const drawStickman = () => {
         hangman.drawEyesRightOk();
         hangman.drawSmileOk();
     } else if (errors === 4) {
-
         hangman.drawBody();
     } else if (errors === 5) {
         hangman.drawArmLeft();
@@ -61,11 +65,10 @@ const drawStickman = () => {
 
 const calculateScore = () => {
     if (word.length == hits) {
-        alert('Ganaste!');
+        handleResultsWindow('open', 'gana')
     }
     if (errors > 8) {
-        alert('Ahorcado');
-        alert('La palabra era: ' + word);
+        handleResultsWindow('open', 'pierde')
     }
 }
 
@@ -86,14 +89,9 @@ const gameLogic = (letter, letterDiv) => {
                         }
                         if (space.innerHTML.includes(letter)) {
                             hits++;
-                            console.log('hit: ' + hits);
-                            console.log('letter: ' + word.length)
                         }
                     })
                     letterDiv.setAttribute('class', 'correct');
-
-
-
                 }
                 else {
                     if (letterDiv.getAttribute("class") != 'correct') {
@@ -159,19 +157,52 @@ document.addEventListener('keydown', function (event) {
 
 //ventana seleccion de categorias
 const categoryWindow = document.querySelector('#categoryWindow');
-
 const handleCategoryWindow = (action) => {
     if (action == 'close') {
         categoryWindow.style.display = "none";
     }
     else if (action == 'open') {
         categoryWindow.style.display = "flex";
+        resultsWindow.style.display = 'none'
     }
 }
 
-const btnViewCategories = document.getElementById('btnViewCategories');
+/* ventana resultados */
+
+const handleResultsWindow = (action, result) => {
+    if (action == 'close' & result == 'none') {
+        resultsWindow.style.display = "none";
+    }
+    else if (action == 'open') {
+        resultsWindow.style.display = "flex";
+    }
+
+    if (result == 'gana') {
+        resultado.innerHTML = 'Ganaste!';
+        resultado.style.color = 'var(--green-01)';
+    } else {
+        resultado.innerHTML = 'Perdiste';
+        resultado.style.color = '#f54a4a';
+    }
+    wordHTML.innerHTML = word;
+}
+const btnCloseResults = document.getElementById('btnCloseResults');
+btnCloseResults.addEventListener('click', () => handleResultsWindow('close'));
+const volverAJugar = () => {
+    handleResultsWindow('close', 'none');
+    startGame(catName);
+}
+const btnVolverAJugar = document.querySelector('.btnVolverAJugar');
+btnVolverAJugar.addEventListener('click', () => volverAJugar());
+
+/* ventana categorias */
+const btnViewCategories = document.querySelector('#btnViewCategories');
+const otraCategoria = document.querySelector('#otraCategoria');
+
 btnCloseSelect.addEventListener('click', () => handleCategoryWindow('close'));
+
 btnViewCategories.addEventListener('click', () => handleCategoryWindow('open'));
+otraCategoria.addEventListener('click', () => handleCategoryWindow('open'));
 
 astronomia.addEventListener('click', () => startGame(categories.astronomia));
 geografia.addEventListener('click', () => startGame(categories.geografia));
@@ -183,9 +214,11 @@ ciencia.addEventListener('click', () => startGame(categories.ciencia));
 // Genera el juego.
 const startGame = (category) => {
     resetGame();
-
+    console.log(category)
     genLetters();
     genRandomWord(category.list);
+
+    catName = category;
 
     category_name.innerHTML = category.name;
 
