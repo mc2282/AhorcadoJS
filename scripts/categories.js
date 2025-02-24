@@ -1,29 +1,29 @@
 export const astronomia = {
     "name": "Astronomía",
-    "list": ["Nebulosa", "Galaxia", "Cuasar", "Supernova", "Asteroide", "Cometa", "Planeta", "Meteorito"]
+    "list": ["nebulosa", "galaxia", "cuasar", "supernova", "asteroide", "cometa", "planeta", "meteorito"]
 }
 
 export const geografia = {
     "name": "Geografía física",
-    "list": ["Cordillera", "Meseta", "Archipielago", "Delta", "Estuario", "Fjord", "Oasis", "Volcan"]
+    "list": ["cordillera", "meseta", "archipielago", "delta", "estuario", "fjord", "oasis", "volcan"]
 }
 
 export const historia_mundial = {
     "name": "Historia mundial",
-    "list": ["Renacimiento", "Revolucion", "Guerra", "Imperio", "Colonialismo", "Dictadura", "Cruzadas", "Democracia"]
+    "list": ["renacimiento", "revolucion", "guerra", "imperio", "colonialismo", "dictadura", "cruzadas", "democracia"]
 }
 
 export const mitos_leyendas = {
     "name": "Mitos y leyendas",
-    "list": ["Minotauro", "Ragnarok", "Excalibur", "Fenix", "Grifo", "Medusa", "Kraken", "Basilisco"]
+    "list": ["minotauro", "ragnarok", "excalibur", "fenix", "grifo", "medusa", "kraken", "basilisco"]
 }
 
 export const filosofia = {
     "name": "Filosofía",
-    "list": ["Existencialismo", "Metafisica", "Empirismo", "Deontologia", "Hedonismo", "Nihilismo", "Eudemonismo", "Axiologia"]
+    "list": ["existencialismo", "metafisica", "empirismo", "deontologia", "hedonismo", "nihilismo", "eudemonismo", "axiologia"]
 }
 
 export const ciencia = {
     "name": "Ciencia y tecnología",
-    "list": ["Nanotecnologia", "Biocombustibles", "Cibernetica", "Microbiologia", "Biometria", "Fotovoltaico", "Hidrogeno", "Robots"]
+    "list": ["nanotecnologia", "biocombustibles", "cibernetica", "microbiologia", "biometria", "fotovoltaico", "hidrogeno", "robots"]
 }

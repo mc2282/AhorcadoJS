@@ -21,7 +21,6 @@ let errors = 0;
 let score = 0;
 let hits = 0;
 
-ciencia
 const genRandomWord = (category) => {
     word = '';
     let randomNr = Math.floor(Math.random() * category.length);
@@ -62,10 +61,11 @@ const drawStickman = () => {
 
 const calculateScore = () => {
     if (word.length == hits) {
-        alert('ganaste!');
+        alert('Ganaste!');
     }
     if (errors > 8) {
-        alert('ahorcado');
+        alert('Ahorcado');
+        alert('La palabra era: ' + word);
     }
 }
 
@@ -84,9 +84,16 @@ const gameLogic = (letter, letterDiv) => {
                         if (space.innerHTML == letter) {
                             space.setAttribute('class', '');
                         }
+                        if (space.innerHTML.includes(letter)) {
+                            hits++;
+                            console.log('hit: ' + hits);
+                            console.log('letter: ' + word.length)
+                        }
                     })
                     letterDiv.setAttribute('class', 'correct');
-                    hits++;
+
+
+
                 }
                 else {
                     if (letterDiv.getAttribute("class") != 'correct') {
@@ -135,6 +142,7 @@ const genLetters = () => {
     handleCategoryWindow('close');
 }
 
+// teclado abecedario
 document.addEventListener('keydown', function (event) {
     const letters = document.querySelectorAll('.letters');
     const key = event.key;
@@ -149,6 +157,7 @@ document.addEventListener('keydown', function (event) {
     gameLogic(key, letterDiv);
 });
 
+//ventana seleccion de categorias
 const categoryWindow = document.querySelector('#categoryWindow');
 
 const handleCategoryWindow = (action) => {
@@ -161,12 +170,8 @@ const handleCategoryWindow = (action) => {
 }
 
 const btnViewCategories = document.getElementById('btnViewCategories');
-
 btnCloseSelect.addEventListener('click', () => handleCategoryWindow('close'));
 btnViewCategories.addEventListener('click', () => handleCategoryWindow('open'));
-
-
-
 
 astronomia.addEventListener('click', () => startGame(categories.astronomia));
 geografia.addEventListener('click', () => startGame(categories.geografia));
